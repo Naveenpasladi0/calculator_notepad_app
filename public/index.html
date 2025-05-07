@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Calculator + Notepad</title>
+  <link href="style.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 font-sans">
+  <div class="min-h-screen flex flex-col items-center justify-center p-4 space-y-10">
+    <h1 class="text-3xl font-bold text-gray-800">📟 Calculator + 📒 Notepad</h1>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-10 w-full max-w-4xl">
+      <div class="bg-white shadow-xl rounded-xl p-6">
+        <h2 class="text-xl font-semibold mb-4">Calculator</h2>
+        <input type="text" id="calc-display" class="w-full p-3 mb-4 text-xl border rounded" readonly />
+        <div class="grid grid-cols-4 gap-3">
+          <button onclick="handleButton('1')" class="bg-blue-100 hover:bg-blue-200 rounded p-3 text-lg">1</button>
+          <button onclick="handleButton('2')" class="bg-blue-100 hover:bg-blue-200 rounded p-3 text-lg">2</button>
+          <button onclick="handleButton('3')" class="bg-blue-100 hover:bg-blue-200 rounded p-3 text-lg">3</button>
+          <button onclick="handleButton('+')" class="bg-blue-100 hover:bg-blue-200 rounded p-3 text-lg">+</button>
+          <button onclick="handleButton('4')" class="bg-blue-100 hover:bg-blue-200 rounded p-3 text-lg">4</button>
+          <button onclick="handleButton('5')" class="bg-blue-100 hover:bg-blue-200 rounded p-3 text-lg">5</button>
+          <button onclick="handleButton('6')" class="bg-blue-100 hover:bg-blue-200 rounded p-3 text-lg">6</button>
+          <button onclick="handleButton('-')" class="bg-blue-100 hover:bg-blue-200 rounded p-3 text-lg">-</button>
+          <button onclick="handleButton('7')" class="bg-blue-100 hover:bg-blue-200 rounded p-3 text-lg">7</button>
+          <button onclick="handleButton('8')" class="bg-blue-100 hover:bg-blue-200 rounded p-3 text-lg">8</button>
+          <button onclick="handleButton('9')" class="bg-blue-100 hover:bg-blue-200 rounded p-3 text-lg">9</button>
+          <button onclick="handleButton('*')" class="bg-blue-100 hover:bg-blue-200 rounded p-3 text-lg">x</button>
+          <button onclick="handleButton('0')" class="bg-blue-100 hover:bg-blue-200 rounded p-3 text-lg">0</button>
+          <button onclick="handleButton('C')" class="bg-blue-100 hover:bg-blue-200 rounded p-3 text-lg">Clear</button>
+          <button onclick="handleButton('=')" class="bg-blue-100 hover:bg-blue-200 rounded p-3 text-lg">=</button>
+          <button onclick="handleButton('/')" class="bg-blue-100 hover:bg-blue-200 rounded p-3 text-lg">/</button>
+        </div>
+      </div>
+      <div class="bg-white shadow-xl rounded-xl p-6 flex flex-col">
+        <h2 class="text-xl font-semibold mb-4">Notepad</h2>
+        <textarea id="note-area" class="flex-grow p-3 border rounded mb-4 resize-none" placeholder="Write your notes here..."></textarea>
+        <button onclick="clearNotes()" class="self-end bg-red-500 hover:bg-red-600 text-white py-2 px-4 rounded">Clear Notes</button>
+      </div>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
