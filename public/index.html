@@ -8,6 +8,14 @@
 </head>
 <body class="bg-gray-100 font-sans">
   <div class="min-h-screen flex flex-col items-center justify-center p-4 space-y-10">
+    <!-- Theme Toggle Switch -->
+    <div class="theme-toggle-container">
+      <label class="theme-toggle">
+        <input type="checkbox" id="themeSwitch">
+        Light Mode
+      </label>
+    </div>
+    
     <h1 class="text-3xl font-bold text-gray-800">📟 Calculator + 📒 Notepad</h1>
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-10 w-full max-w-4xl">
@@ -32,6 +40,13 @@
           <button onclick="handleButton('=')" class="bg-blue-100 hover:bg-blue-200 rounded p-3 text-lg">=</button>
           <button onclick="handleButton('/')" class="bg-blue-100 hover:bg-blue-200 rounded p-3 text-lg">/</button>
         </div>
+        <div id="history-panel">
+          <h3 style="display: flex; justify-content: space-between; align-items: center;">
+            History
+            <button id="clear-history-btn">Clear</button>
+          </h3>          
+          <ul id="calc-history"></ul>
+        </div>                       
       </div>
       <div class="bg-white shadow-xl rounded-xl p-6 flex flex-col">
         <h2 class="text-xl font-semibold mb-4">Notepad</h2>

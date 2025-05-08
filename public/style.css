@@ -1,4 +1,3 @@
-/* Global Styles */
 body {
   font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 0;
@@ -14,7 +13,7 @@ h1, h2 {
 }
 
 h1 {
-  margin-bottom: 100px;
+  margin-bottom: 25px;
   margin-top: 40px;
   font-size: 35px;
 }
@@ -40,7 +39,7 @@ h2 {
     color: #f5f5f5;
   }
   button:hover {
-    background-color: #555;
+    background-color: #e0e0e0;
   }
   button.clear-btn {
     background-color: #c62828;
@@ -75,7 +74,7 @@ button {
 }
 
 button:hover {
-  background-color: #90caf9;
+  background-color: #e0e0e0;
   transform: scale(1.0);
 }
 
@@ -87,6 +86,51 @@ button.clear-btn {
 
 button.clear-btn:hover {
   background-color: #c62828;
+}
+
+/* History Panel */
+
+#history-panel {
+  margin-top: 15px;
+  background: #599ec2;
+  padding: 15px;
+  border-radius: 8px;
+  height: 300px;
+  overflow-y: auto;
+  border: 1px solid #ccc;
+}
+
+#history-panel h3 {
+  margin-top: 0;
+}
+
+#calc-history {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+#calc-history li {
+  padding: 5px;
+  border-bottom: 1px solid #ccc;
+  font-size: 16px;
+}
+
+#clear-history-btn {
+  font-size: 17px;
+  padding: 4px 10px;
+  margin-left: 10px;
+  background-color: #005ea2;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  height: 35px;
+  width: 85px;
+}
+
+#clear-history-btn:hover {
+  background-color: #e0e0e0;
 }
 
 /* Textarea (Notepad) */
@@ -141,11 +185,11 @@ textarea {
   }
 
   textarea {
-    width: 344px;
-    height: 218px;
+    width: 170px;
+    height: 503px;
     font-size: 1rem;
     margin: 20px auto;
-    margin-top: 28px;
+    margin-top: 20px;
     margin-bottom: 15px;
   }
 
@@ -154,11 +198,13 @@ textarea {
   }
 
   h1 {
-    font-size: 28px;
+    font-size: 20px;
+    margin-top: 54px;
   }
 
   h2 {
-    font-size: 20px;
+    font-size: 16px;
+    margin: 10px 0;
   }
 }
 
@@ -172,12 +218,12 @@ textarea {
   button {
     font-size: 1.1rem;
     padding: 13px;
-    width: 102%;
+    width: 108%;
   }
 
   textarea {
     width: 297%;
-    height: 246px;
+    height: 538px;
     font-size: 1.05rem;
   }
 
@@ -190,7 +236,7 @@ textarea {
 @media (min-width: 1025px) and (max-width: 1439px) {
   #calc-display {
     font-size: 1.75rem;
-    width: 93%;
+    width: 92%;
   }
 
   button {
@@ -200,7 +246,7 @@ textarea {
 
   textarea {
     width: 297%;
-    height: 280px;
+    height: 560px;
   }
 
   .container {
@@ -226,6 +272,109 @@ textarea {
 
   textarea {
     width: 297%;
-    height: 320px;
+    height: 591px;
   }
+}
+
+/* Light Mode Styles */
+body.light-mode {
+  background-color: #fdfdfd;
+  color: #121212;
+}
+
+body.light-mode #calc-display,
+body.light-mode textarea {
+  background-color: #ffffff;
+  color: #121212;
+  border-color: #333;
+}
+
+body.light-mode button {
+  background-color: #f5f5f5;
+  color: #121212;
+}
+
+body.light-mode button:hover {
+  background-color: #333;
+}
+
+body.light-mode #history-panel {
+  background-color: #f5f5f5;
+  color: #121212;
+  border: 1px solid #ddd;
+}
+
+body.light-mode #clear-history-btn {
+  background-color: #e0e0e0;
+  color: #121212;
+}
+
+body.light-mode #clear-history-btn:hover {
+  background-color: #333;
+  color: #f5f5f5;
+}
+
+body.light-mode textarea {
+  background-color: #f5f5f5;
+  border: 2px solid #ccc;
+}
+
+/* Dark Mode Styles */
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #121212;
+    color: #f5f5f5;
+  }
+
+  #calc-display, textarea {
+    background-color: #1e1e1e;
+    color: #f5f5f5;
+    border-color: #333;
+  }
+
+  button {
+    background-color: #333;
+    color: #f5f5f5;
+  }
+
+  button:hover {
+    background-color: #e0e0e0;
+    color: #121212;
+  }
+
+  #history-panel {
+    background-color: #333;
+    color: #f5f5f5;
+    border: 1px solid #444;
+  }
+
+  #clear-history-btn {
+    background-color: #555;
+    color: white;
+  }
+
+  #clear-history-btn:hover  {
+      background-color: #e0e0e0;
+      color: #121212;
+  }
+}
+
+/* Theme Toggle */
+.theme-toggle-container {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.theme-toggle input {
+  margin-right: 6px;
+}
+
+.theme-toggle label {
+  font-weight: bold;
+  font-size: 1.1rem;
+  cursor: pointer;
 }
