@@ -34,8 +34,8 @@ document.getElementById('clear-history-btn').addEventListener('click', () => {
   document.getElementById('calc-history').innerHTML = '';
 });
 
+// Theme toggle
 const toggle = document.getElementById('themeSwitch');
-
 toggle.addEventListener('change', () => {
   if (toggle.checked) {
     document.body.classList.add('light-mode');
@@ -43,3 +43,30 @@ toggle.addEventListener('change', () => {
     document.body.classList.remove('light-mode');
   }
 });
+
+// Keyboard support for calculator
+document.addEventListener('keydown', handleKeyPress);
+function handleKeyPress(event) {
+  const key = event.key;
+
+  // Allow numbers
+  if (/\d/.test(key)) {
+    handleButton(key);
+  }
+  // Operators
+  else if (["+", "-", "*", "/"].includes(key)) {
+    handleButton(key);
+  }
+  // Enter -> Equals
+  else if (key === "Enter") {
+    handleButton("=");
+  }
+  // Backspace -> Remove last character
+  else if (key === "Backspace") {
+    display.value = display.value.slice(0, -1);
+  }
+  // C or c -> Clear display
+  else if (key.toLowerCase() === "c") {
+    handleButton("C");
+  }
+}
