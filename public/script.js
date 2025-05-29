@@ -46,8 +46,17 @@ toggle.addEventListener('change', () => {
 
 // Keyboard support for calculator
 document.addEventListener('keydown', handleKeyPress);
+
 function handleKeyPress(event) {
   const key = event.key;
+  const activeElement = document.activeElement; // Get the currently focused element
+
+  // IMPORTANT: Only process key presses for the calculator
+  // if an input field or textarea is NOT currently focused.
+  // This prevents calculator input when typing in the notepad or other inputs.
+  if (activeElement.tagName === 'INPUT' || activeElement.tagName === 'TEXTAREA') {
+    return; // Exit the function if an input or textarea is focused
+  }
 
   // Allow numbers
   if (/\d/.test(key)) {
@@ -60,6 +69,7 @@ function handleKeyPress(event) {
   // Enter -> Equals
   else if (key === "Enter") {
     handleButton("=");
+    event.preventDefault(); // Prevent default Enter key behavior (e.g., submitting forms if any)
   }
   // Backspace -> Remove last character
   else if (key === "Backspace") {
