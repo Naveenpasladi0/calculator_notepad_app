@@ -51,12 +51,15 @@ function handleKeyPress(event) {
   const key = event.key;
   const activeElement = document.activeElement; // Get the currently focused element
 
-  // IMPORTANT: Only process key presses for the calculator
-  // if an input field or textarea is NOT currently focused.
-  // This prevents calculator input when typing in the notepad or other inputs.
-  if (activeElement.tagName === 'INPUT' || activeElement.tagName === 'TEXTAREA') {
-    return; // Exit the function if an input or textarea is focused
+  // Check if the notepad textarea is focused.
+  // If it is, we should not process key presses for the calculator.
+  if (activeElement === noteArea) {
+    return; // Exit the function, let the textarea handle its own input
   }
+
+  // If *any* other input element (like the calculator display) is focused,
+  // or if no specific input element is focused (e.g., body is focused),
+  // then we proceed with calculator keyboard logic.
 
   // Allow numbers
   if (/\d/.test(key)) {
@@ -73,7 +76,11 @@ function handleKeyPress(event) {
   }
   // Backspace -> Remove last character
   else if (key === "Backspace") {
-    display.value = display.value.slice(0, -1);
+    // Only allow backspace if the active element is NOT the notepad
+    // and the calculator display is not empty.
+    if (activeElement !== noteArea && display.value.length > 0) {
+      display.value = display.value.slice(0, -1);
+    }
   }
   // C or c -> Clear display
   else if (key.toLowerCase() === "c") {
